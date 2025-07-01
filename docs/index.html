@@ -1,121 +1,139 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AI Dental Diagnosis | Dr. [Your Name]</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Dental Diagnosis Infographic</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9fafb;
-      color: #333;
-      line-height: 1.6;
-    }
-    header {
-      background-color: #0f172a;
-      color: #fff;
-      padding: 1rem 2rem;
-      text-align: center;
-    }
-    nav {
-      margin-top: 10px;
-      font-size: 0.9rem;
-    }
-    nav a {
-      margin: 0 1rem;
-      color: #facc15;
-      text-decoration: none;
-    }
-    section {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    h1, h2 {
-      color: #1e293b;
-    }
-    h1 {
-      font-size: 2rem;
-    }
-    h2 {
-      font-size: 1.25rem;
-      margin-top: 2rem;
-    }
-    footer {
-      background-color: #0f172a;
-      color: #cbd5e1;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 3rem;
-      font-size: 0.9rem;
-    }
-    ul {
-      padding-left: 1.5rem;
-    }
+    body { font-family: 'Inter', sans-serif; }
   </style>
 </head>
-<body>
+<body class="bg-gray-100 text-gray-800">
 
-  <header>
-    <h1>AI-Powered Dental X-Ray Diagnosis</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#background">Background</a>
-      <a href="#methods">Methods</a>
-      <a href="#outcomes">Outcomes</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <header class="bg-slate-900 text-white py-6">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <h1 class="text-3xl font-bold">AI-Powered Dental X-Ray Diagnosis</h1>
+      <p class="mt-2 text-yellow-300">Dr. Manisha Shah – Research Fellowship</p>
+    </div>
   </header>
 
-  <section id="project">
-    <p><strong>Applicant:</strong> Dr. Dr. Manisha Shah</p>
-    <p><strong>Track:</strong> Foreign-Trained Dentist – Research Fellowship</p>
-    
-    <h2 id="background">Background</h2>
-    <p>
-      Dental radiographs are vital for diagnosing conditions such as caries, bone loss, periapical lesions, and impacted teeth.
-      However, manual interpretation is subjective and inconsistent. Artificial Intelligence (AI) has the potential to enhance accuracy and streamline clinical decisions.
-    </p>
+  <main class="max-w-5xl mx-auto px-4 py-10">
+    <section id="background" class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Background</h2>
+      <p class="mb-4">Dental radiographs are essential for diagnosing caries, bone loss, and more. Manual reading is inconsistent. AI can offer consistency, speed, and diagnostic accuracy.</p>
+      <canvas id="conditionsChart" class="w-full h-64"></canvas>
+    </section>
 
-    <h2>Objective</h2>
-    <p>
-      To build a deep learning model capable of:
-    </p>
-    <ul>
-      <li>Detecting dental pathologies in 2D X-rays</li>
-      <li>Assessing severity of conditions</li>
-      <li>Recommending treatment plans based on clinical best practices</li>
-    </ul>
+    <section id="objective" class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Objective</h2>
+      <ul class="list-disc list-inside space-y-2">
+        <li>Detect dental pathologies in 2D X-rays</li>
+        <li>Assess severity of conditions</li>
+        <li>Recommend treatment plans</li>
+      </ul>
+    </section>
 
-    <h2 id="methods">Methods</h2>
-    <p>
-      Using 5,000–10,000 labeled radiographs, we’ll train a multi-task CNN using YOLOv5 for object detection and ResNet/EfficientNet for classification.
-      Training will include data augmentation and optimization via focal loss. We will evaluate model performance using mAP, sensitivity, specificity, and AUC metrics.
-    </p>
+    <section id="methods" class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Methods</h2>
+      <p>Using 5,000–10,000 labeled radiographs:</p>
+      <ul class="list-disc list-inside space-y-2">
+        <li>YOLOv5 for object detection</li>
+        <li>ResNet/EfficientNet for classification</li>
+        <li>Data augmentation + Focal Loss</li>
+      </ul>
+      <canvas id="modelPipelineChart" class="w-full h-64 mt-6"></canvas>
+    </section>
 
-    <h2>Validation & Usability</h2>
-    <p>
-      A clinical usability study will be conducted with dentists, measuring diagnostic speed, user trust, and AI-aided decision accuracy through surveys and time trials.
-    </p>
+    <section id="validation" class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Validation & Usability</h2>
+      <p>Testing AI with real dentists:</p>
+      <ul class="list-disc list-inside space-y-2">
+        <li>Diagnostic speed improvements</li>
+        <li>Decision confidence tracking</li>
+        <li>Survey feedback and accuracy scores</li>
+      </ul>
+    </section>
 
-    <h2 id="outcomes">Expected Outcomes</h2>
-    <p>
-      The model aims for ≥85% sensitivity and ≥80% specificity across key conditions. The tool will deliver real-time visual insights and streamline dental treatment planning.
-    </p>
+    <section id="outcomes" class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Expected Outcomes</h2>
+      <canvas id="performanceChart" class="w-full h-64"></canvas>
+    </section>
 
-    <h2>Impact</h2>
-    <p>
-      This system has the potential to reduce diagnostic error, optimize clinical workflows, and bring AI innovation into day-to-day dental care—especially valuable in underserved or high-volume practices.
-    </p>
-  </section>
+    <section id="impact" class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Clinical Impact</h2>
+      <p>Optimizes workflows, reduces errors, and brings real-time insights to dental care—especially in underserved areas.</p>
+      <canvas id="workflowChart" class="w-full h-64 mt-6"></canvas>
+    </section>
+  </main>
 
-  <footer id="contact">
-    <p>© 2025 Dr. [Your Name] · Contact: manisa.doc@gmail.com · All rights reserved.</p>
+  <footer class="bg-slate-900 text-white text-center text-sm py-4">
+    <p>© 2025 Dr. Manisha Shah · Contact: manisa.doc@gmail.com</p>
   </footer>
 
+  <script>
+    new Chart(document.getElementById('conditionsChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Caries', 'Bone Loss', 'Periapical Lesions', 'Impacted Teeth'],
+        datasets: [{
+          label: 'Diagnosis Frequency in Dataset',
+          data: [3200, 2500, 1800, 1500],
+          backgroundColor: 'rgba(234, 179, 8, 0.7)'
+        }]
+      },
+      options: { responsive: true, plugins: { legend: { display: false } } }
+    });
+
+    new Chart(document.getElementById('modelPipelineChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['YOLOv5', 'ResNet', 'EfficientNet', 'Data Augmentation'],
+        datasets: [{
+          label: 'Pipeline Components',
+          data: [30, 25, 25, 20],
+          backgroundColor: ['#60a5fa','#34d399','#fbbf24','#f87171']
+        }]
+      },
+      options: { responsive: true }
+    });
+
+    new Chart(document.getElementById('performanceChart'), {
+      type: 'radar',
+      data: {
+        labels: ['Sensitivity', 'Specificity', 'mAP', 'AUC'],
+        datasets: [{
+          label: 'Model Goal (%)',
+          data: [85, 80, 78, 88],
+          backgroundColor: 'rgba(59,130,246,0.2)',
+          borderColor: '#3b82f6'
+        }]
+      },
+      options: { responsive: true }
+    });
+
+    new Chart(document.getElementById('workflowChart'), {
+      type: 'line',
+      data: {
+        labels: ['Pre-AI', 'With AI'],
+        datasets: [
+          {
+            label: 'Diagnosis Time (sec)',
+            data: [60, 20],
+            borderColor: '#10b981',
+            tension: 0.4
+          },
+          {
+            label: 'Accuracy (%)',
+            data: [72, 86],
+            borderColor: '#f59e0b',
+            tension: 0.4
+          }
+        ]
+      },
+      options: { responsive: true }
+    });
+  </script>
 </body>
 </html>
