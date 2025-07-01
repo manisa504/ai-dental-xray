@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Report: AI in Dental Diagnostics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .tab-button.active { background-color: #1A746B; color: #fff; }
+        .content-section { display: none; }
+        .content-section.active { display: block; }
+    </style>
+</head>
+<body class="antialiased bg-gray-50">
+
+    <div class="container mx-auto px-4 py-12">
+        <div class="border-b border-gray-300 mb-8">
+            <nav class="flex justify-center gap-4" id="main-tabs">
+                <button data-target="workflow" class="tab-button py-2 px-4 rounded-t-lg active">How It Works</button>
+                <button data-target="impact" class="tab-button py-2 px-4 rounded-t-lg">The Impact</button>
+                <button data-target="future" class="tab-button py-2 px-4 rounded-t-lg">The Future</button>
+            </nav>
+        </div>
+
+        <section id="workflow" class="content-section active">
+            <h2 class="text-2xl font-semibold mb-4">AI-Powered Diagnostic Workflow</h2>
+            <p>The AI diagnostic workflow begins with high-resolution image acquisition using digital radiography. The images then undergo preprocessing to normalize brightness and contrast and remove artifacts, ensuring optimal quality. Advanced deep learning algorithms like YOLOv5 and EfficientNet analyze these images to detect and classify dental pathologies such as caries, periodontal bone loss, and periapical lesions. Finally, the AI system generates comprehensive diagnostic reports, complete with visual annotations and suggested treatment protocols aligned with clinical best practices.</p>
+        </section>
+
+        <section id="impact" class="content-section">
+            <h2 class="text-2xl font-semibold mb-4">Clinical & Business Impact</h2>
+            <p>The integration of AI technology in dental diagnostics significantly enhances clinical outcomes and operational efficiency. Clinically, the AI system has demonstrated exceptional sensitivity, achieving over 90% accuracy in detecting dental caries and exceeding 85% precision for periodontal issues. By automating complex diagnostic processes, it substantially reduces the diagnostic turnaround time by 30–40%, allowing clinicians to dedicate more attention to patient care. Business-wise, this technology promotes cost-effectiveness through early detection, preventive care, and streamlined workflows, thus reducing overall treatment costs and enhancing patient satisfaction. Its scalability allows seamless integration across diverse clinical settings, including tele-dentistry and rural clinics, significantly improving access to high-quality dental care globally.</p>
+        </section>
+
+        <section id="future" class="content-section">
+            <h2 class="text-2xl font-semibold mb-4">Future Trends & Challenges</h2>
+            <p>The future trajectory of AI in dental diagnostics is focused on advanced integration and predictive capabilities. The next generation of AI systems will incorporate 3D Cone Beam Computed Tomography (CBCT) imaging, greatly enhancing surgical planning and precision in implantology. Predictive modeling will become integral, leveraging electronic health records and multimodal imaging to forecast periodontal risks before clinical symptoms manifest, enabling preventive interventions. Additionally, federated learning frameworks will allow multiple institutions to collaborate securely, enhancing AI models without compromising patient data privacy. Navigating regulatory landscapes, particularly FDA approval, will be critical for widespread adoption. Ethical challenges such as algorithmic biases and data security will require robust governance frameworks, ensuring that AI solutions remain trustworthy and equitable across diverse patient populations.</p>
+        </section>
+    </div>
+
+    <script>
+        document.getElementById('main-tabs').addEventListener('click', (e) => {
+            const button = e.target.closest('button');
+            if (!button) return;
+
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
+            document.getElementById(button.dataset.target).classList.add('active');
+        });
+    </script>
+</body>
+</html>
