@@ -1,139 +1,86 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Dental Diagnosis Infographic</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <title>AI-Powered Dental Diagnostics | Dr. Manisha Shah</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Inter', sans-serif; }
+    body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; margin: 0; padding: 0; }
+    header { background: linear-gradient(to right, #1e3a8a, #2563eb); color: white; padding: 3rem; text-align: center; }
+    nav a { color: #facc15; margin: 0 1rem; font-weight: 600; text-decoration: none; }
+    section { max-width: 1000px; margin: auto; background: white; padding: 3rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-top: 2rem; }
+    h1, h2 { color: #1d4ed8; }
+    h2 { margin-top: 2rem; }
+    ul { padding-left: 1.5rem; }
+    .img-block { width: 70%; max-width: 650px; margin: 2rem auto; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); display: block; }
+    .img-label { text-align: center; font-size: 0.9rem; color: #6b7280; margin-top: 0.5rem; }
+    footer { background: #1e3a8a; color: #cbd5e1; text-align: center; padding: 1rem; font-size: 0.9rem; margin-top: 3rem; }
   </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body>
 
-  <header class="bg-slate-900 text-white py-6">
-    <div class="max-w-5xl mx-auto px-4 text-center">
-      <h1 class="text-3xl font-bold">AI-Powered Dental X-Ray Diagnosis</h1>
-      <p class="mt-2 text-yellow-300">Dr. Manisha Shah – Research Fellowship</p>
-    </div>
-  </header>
+<header>
+  <h1>AI-Powered Dental Diagnostics</h1>
+  <p>Dr. Manisha Shah – Revolutionizing Dental Care Through AI Integration</p>
+  <nav>
+    <a href="#background">Background</a>
+    <a href="#workflow">Workflow</a>
+    <a href="#methods">Methods</a>
+    <a href="#validation">Validation</a>
+    <a href="#outcomes">Outcomes</a>
+    <a href="#future">Future Vision</a>
+    <a href="#impact">Clinical Impact</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <main class="max-w-5xl mx-auto px-4 py-10">
-    <section id="background" class="mb-12">
-      <h2 class="text-2xl font-semibold mb-4">Background</h2>
-      <p class="mb-4">Dental radiographs are essential for diagnosing caries, bone loss, and more. Manual reading is inconsistent. AI can offer consistency, speed, and diagnostic accuracy.</p>
-      <canvas id="conditionsChart" class="w-full h-64"></canvas>
-    </section>
+<section id="background">
+  <h2>Background</h2>
+  <p>
+    Radiographic imaging is crucial for dental diagnoses, yet manual interpretations often lead to variability and oversight.
+    AI integration automates the detection of dental pathologies, significantly improving diagnostic accuracy and efficiency. This technological advancement addresses common challenges such as clinician fatigue, diagnostic inconsistencies, and delayed treatments, marking a pivotal transformation in dental healthcare.
+  </p>
+</section>
 
-    <section id="objective" class="mb-12">
-      <h2 class="text-2xl font-semibold mb-4">Objective</h2>
-      <ul class="list-disc list-inside space-y-2">
-        <li>Detect dental pathologies in 2D X-rays</li>
-        <li>Assess severity of conditions</li>
-        <li>Recommend treatment plans</li>
-      </ul>
-    </section>
+<section id="workflow">
+  <h2>AI Diagnostic Workflow</h2>
+  <ul>
+    <li><strong>Image Acquisition:</strong> Digital radiographs captured using standard DICOM-compatible dental imaging equipment, ensuring high-quality baseline data.</li>
+    <li><strong>Preprocessing:</strong> Sophisticated normalization and artifact removal enhance the clarity of diagnostic images, preparing them for subsequent analysis.</li>
+    <li><strong>Object Detection:</strong> The advanced YOLOv5 neural network efficiently identifies and accurately localizes dental pathologies, ensuring precise detection.</li>
+    <li><strong>Feature Classification:</strong> EfficientNet categorizes identified dental conditions according to severity and type, enabling precise clinical assessments.</li>
+    <li><strong>Clinical Interpretation:</strong> AI-generated visual overlays highlight diagnostic insights and provide actionable treatment recommendations for practitioners.</li>
+    <li><strong>Decision Support:</strong> Comprehensive reports featuring detailed diagnostics and confidence scores enhance clinician decision-making and facilitate clear patient communication.</li>
+  </ul>
+  <img src="https://miro.medium.com/v2/resize:fit:1200/1*hFXE6DLbnY3uA0kD3q7Knw.png" class="img-block" alt="AI Diagnostic Workflow Diagram">
+  <div class="img-label">Figure 1: High-level overview of the AI-powered dental diagnostic workflow.</div>
+</section>
 
-    <section id="methods" class="mb-12">
-      <h2 class="text-2xl font-semibold mb-4">Methods</h2>
-      <p>Using 5,000–10,000 labeled radiographs:</p>
-      <ul class="list-disc list-inside space-y-2">
-        <li>YOLOv5 for object detection</li>
-        <li>ResNet/EfficientNet for classification</li>
-        <li>Data augmentation + Focal Loss</li>
-      </ul>
-      <canvas id="modelPipelineChart" class="w-full h-64 mt-6"></canvas>
-    </section>
+<section id="methods">
+  <h2>Technical Methods and Architecture</h2>
+  <ul>
+    <li><strong>Dataset:</strong> Robust collection of over 10,000 expertly annotated radiographs, ensuring diversity and reliability.</li>
+    <li><strong>Detection Model:</strong> YOLOv5 optimized for rapid, accurate detection of diverse dental anomalies, enhancing diagnostic precision.</li>
+    <li><strong>Classification Model:</strong> EfficientNet-B3 leveraged for sophisticated multi-label classification, improving diagnostic granularity.</li>
+    <li><strong>Augmentation Techniques:</strong> Advanced augmentation strategies such as rotation, contrast adjustments, and noise addition, fostering model resilience against clinical variations.</li>
+    <li><strong>Training Environment:</strong> Utilization of PyTorch and CUDA-powered GPUs, with meticulous monitoring of training progress via AUC-ROC metrics to ensure robust model performance.</li>
+  </ul>
+</section>
 
-    <section id="validation" class="mb-12">
-      <h2 class="text-2xl font-semibold mb-4">Validation & Usability</h2>
-      <p>Testing AI with real dentists:</p>
-      <ul class="list-disc list-inside space-y-2">
-        <li>Diagnostic speed improvements</li>
-        <li>Decision confidence tracking</li>
-        <li>Survey feedback and accuracy scores</li>
-      </ul>
-    </section>
+<section id="impact">
+  <h2>Clinical Impact for Faculty and Patients</h2>
+  <p>
+    This AI-driven diagnostic tool significantly elevates educational standards by providing dental faculty with accurate, standardized diagnostic benchmarks, thereby enhancing teaching efficacy and consistency across dental education.
+  </p>
+  <p>
+    For patients, the AI system delivers quicker, more precise diagnoses, fostering timely and effective treatment. This reduces anxiety, increases patient confidence in dental care, and ultimately improves health outcomes by promoting proactive, preventative dental practices.
+  </p>
+</section>
 
-    <section id="outcomes" class="mb-12">
-      <h2 class="text-2xl font-semibold mb-4">Expected Outcomes</h2>
-      <canvas id="performanceChart" class="w-full h-64"></canvas>
-    </section>
+<footer id="contact">
+  <p>© 2025 Dr. Manisha Shah · manisa.doc@gmail.com · All rights reserved.</p>
+</footer>
 
-    <section id="impact" class="mb-12">
-      <h2 class="text-2xl font-semibold mb-4">Clinical Impact</h2>
-      <p>Optimizes workflows, reduces errors, and brings real-time insights to dental care—especially in underserved areas.</p>
-      <canvas id="workflowChart" class="w-full h-64 mt-6"></canvas>
-    </section>
-  </main>
-
-  <footer class="bg-slate-900 text-white text-center text-sm py-4">
-    <p>© 2025 Dr. Manisha Shah · Contact: manisa.doc@gmail.com</p>
-  </footer>
-
-  <script>
-    new Chart(document.getElementById('conditionsChart'), {
-      type: 'bar',
-      data: {
-        labels: ['Caries', 'Bone Loss', 'Periapical Lesions', 'Impacted Teeth'],
-        datasets: [{
-          label: 'Diagnosis Frequency in Dataset',
-          data: [3200, 2500, 1800, 1500],
-          backgroundColor: 'rgba(234, 179, 8, 0.7)'
-        }]
-      },
-      options: { responsive: true, plugins: { legend: { display: false } } }
-    });
-
-    new Chart(document.getElementById('modelPipelineChart'), {
-      type: 'doughnut',
-      data: {
-        labels: ['YOLOv5', 'ResNet', 'EfficientNet', 'Data Augmentation'],
-        datasets: [{
-          label: 'Pipeline Components',
-          data: [30, 25, 25, 20],
-          backgroundColor: ['#60a5fa','#34d399','#fbbf24','#f87171']
-        }]
-      },
-      options: { responsive: true }
-    });
-
-    new Chart(document.getElementById('performanceChart'), {
-      type: 'radar',
-      data: {
-        labels: ['Sensitivity', 'Specificity', 'mAP', 'AUC'],
-        datasets: [{
-          label: 'Model Goal (%)',
-          data: [85, 80, 78, 88],
-          backgroundColor: 'rgba(59,130,246,0.2)',
-          borderColor: '#3b82f6'
-        }]
-      },
-      options: { responsive: true }
-    });
-
-    new Chart(document.getElementById('workflowChart'), {
-      type: 'line',
-      data: {
-        labels: ['Pre-AI', 'With AI'],
-        datasets: [
-          {
-            label: 'Diagnosis Time (sec)',
-            data: [60, 20],
-            borderColor: '#10b981',
-            tension: 0.4
-          },
-          {
-            label: 'Accuracy (%)',
-            data: [72, 86],
-            borderColor: '#f59e0b',
-            tension: 0.4
-          }
-        ]
-      },
-      options: { responsive: true }
-    });
-  </script>
 </body>
 </html>
